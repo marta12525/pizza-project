@@ -220,7 +220,7 @@
             //add price of option to variable price */
             price += option.price;
           //END IF: if option is selected and option is not default */
-          } else if (optionSelected && option.default) {
+          } else if (!optionSelected && option.default) {
           //START ELSE IF: if option is not selected and option is default */
           
             //deduct price of option from price */
