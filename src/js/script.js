@@ -127,6 +127,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion () {
@@ -227,6 +228,20 @@
             price -= option.price;
           //END ELSE IF: if option is not selected and option is default */
           }
+
+          const activeImages = thisProduct.imageWrapper.querySelectorAll(`.${paramId}-${optionId}`);
+
+          if (optionSelected) {
+            for (let image of activeImages) {
+              image.classList.add(classNames.menuProduct.imageVisible);
+            }
+
+          } else {
+            for (let image of activeImages) {
+              image.classList.remove(classNames.menuProduct.imageVisible);
+            }
+
+        }
 
         //END LOOK: for each optionId in param.options
         }
