@@ -191,8 +191,51 @@
       const  thisProduct = this;
       console.log(thisProduct);
 
+      /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
       console.log('formData', formData);
+
+      //domyślna cena produktu wzięta z thisProduct.data.price zapisana w price
+      let price = thisProduct.data.price;
+      console.log(price);
+
+      const paramsOfProduct = thisProduct.data.params;
+
+      //START LOOP: for each paramId in thisProduct.data.params
+      for (let paramId in paramsOfProduct) {
+
+        //save the element in thisProduct.data.params with key paramId as const param
+        const param = paramsOfProduct[paramId];
+
+        //START LOOP: for each optionId in param.options
+        for (let optionId in param.options) {
+
+          const option = param.options[optionId];
+
+          //save the element in param.options with key optionId as const option
+          const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
+
+          // START IF: if option is selected and option is not default
+          if (optionSelected && !option.default) {
+            //add price of option to variable price */
+            price += option.price;
+          //END IF: if option is selected and option is not default */
+          } else if (optionSelected && option.default) {
+          //START ELSE IF: if option is not selected and option is default */
+          
+            //deduct price of option from price */
+            price -= option.price;
+          //END ELSE IF: if option is not selected and option is default */
+          }
+
+        //END LOOK: for each optionId in param.options
+        }
+
+      //END LOOP: for each paramId in thisProduct.data.params
+      }
+
+      //thisProduct.priceElem(price);
+      thisProduct.priceElem.innerHTML = price;
     }
   }
 
