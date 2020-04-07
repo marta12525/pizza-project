@@ -202,7 +202,7 @@
       //console.log('formData', formData);
 
       thisProduct.params = {};
-      //domyślna cena produktu wzięta z thisProduct.data.price zapisana w price
+      //default price of product take from thisProdust.data.price, save in price
       let price = thisProduct.data.price;
       //console.log(price);
 
@@ -305,7 +305,7 @@
 
       thisWidget.value = settings.amountWidget.defaultValue;
 
-      thisWidget.setValue(thisWidget.input.value); //wywołanie metody setValue
+      thisWidget.setValue(thisWidget.input.value);
 
       thisWidget.initActions();
     }
@@ -324,14 +324,12 @@
 
       const newValue = parseInt(value);
 
-      //TODO: add validation - która będzie sprawdzać czy wartość tej stałej jest poprawna i mieści się w dopuszczalnym zakresie – tylko w takim przypadku zostanie ona zapisana jako właściwość thisWidget.value
-
       if (newValue && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
-        thisWidget.value = newValue; //wartość przekazanego argumentu, po przekonwertowaniu go na liczbę.
+        thisWidget.value = newValue;
         thisWidget.announce();
       }
 
-      thisWidget.input.value = thisWidget.value; //nowa wartść inputa, Dzięki temu nowa wartość wyświetli się na stronie
+      thisWidget.input.value = thisWidget.value; 
     }
 
     initActions() {
