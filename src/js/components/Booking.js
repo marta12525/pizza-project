@@ -1,8 +1,10 @@
 import {templates, select} from '../settings.js';
 import AmountWidget from './AmountWidget.js';
+import DatePicker from './DatePicker.js';
+import HourPicker from './HourPicker.js';
 
 class Booking {
-  constructor (bookingWrapper) { //nie jestem pewna czy powinno byc element
+  constructor (bookingWrapper) {
     const thisBooking = this;
 
     thisBooking.render(bookingWrapper);
@@ -20,8 +22,9 @@ class Booking {
     thisBooking.dom.wrapper.innerHTML = generatedHTML;
 
     thisBooking.dom.peopleAmount = thisBooking.dom.wrapper.querySelector(select.booking.peopleAmount);
-
     thisBooking.dom.hoursAmount = thisBooking.dom.wrapper.querySelector(select.booking.hoursAmount);
+    thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
+    thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
 
   }
 
@@ -30,6 +33,8 @@ class Booking {
 
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
+    thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
+    thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
   }
 }
