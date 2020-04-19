@@ -39,6 +39,7 @@ export const select = {
       wrapper: '.hour-picker',
       input: 'input[type="range"]',
       output: '.output',
+      slider: '.rangeSlider',
     },
   },
   cart: {
@@ -63,10 +64,10 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
-    address: '.booking-form [name="address"]',
-    phone: '.booking-form [name="phone"]',
-    starters: '.booking-form [name="starter"]',
-    buttonBook: '.order-confirmation [type="submit"]',
+    bookTable: '.booking-form [type="submit"]',
+    bookPhone: '.booking-form [name="phone"]',
+    bookAddress: '.booking-form [name="address"]',
+    starters: '[name="starter"]',
   },
   nav: {
     links: '.main-nav a',
@@ -84,6 +85,7 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
+    reserved: 'reserved',
   },
   nav: {
     active: 'active',
@@ -91,6 +93,12 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  carousel: {
+    card: 'main__carousel-card',
+    dot: 'dot',
+    active: ' active',
+    activeDot: ' active-dot',
+  }
 };
   
 export const settings = {
