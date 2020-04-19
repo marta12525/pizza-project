@@ -60,8 +60,10 @@
 .rangeSlider {
   top: $base-size;
   background: lighten($color-dark, 70%);
+  //background: green;
   box-shadow: none;
   height: $base-size;
+  border-radius: 20px;
 
   &__handle {
     box-shadow: none;
@@ -147,6 +149,14 @@
     transform: rotate(45deg);
     transform-origin: 50% 50%;
     cursor: pointer;
+
+    &:hover {
+      background-color: #ffcccc;
+    }
+
+    &.reserved {
+      background-color: #ff6666;
+    }
 
     &--round {
       border-radius: 50%;
