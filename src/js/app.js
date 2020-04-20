@@ -4,6 +4,14 @@ import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
 
 const app = {
+  initBooking: function () {
+    const thisApp = this;
+
+    const bookingWrapper = document.querySelector(select.containerOf.booking);
+
+    thisApp.booking = new Booking(bookingWrapper);
+  },
+
   initPages: function () {
     const thisApp = this;
 
@@ -114,14 +122,6 @@ const app = {
     thisApp.productList.addEventListener('add-to-cart', function (event) {
       app.cart.add(event.detail.product);
     });
-  },
-
-  initBooking: function () {
-    const thisApp = this;
-
-    const bookingWrapper = document.querySelector(select.containerOf.booking);
-
-    thisApp.booking = new Booking(bookingWrapper);
   },
 
   initCarousel() {
