@@ -13,8 +13,6 @@ class Cart {
     thisCart.getElements(element);
 
     thisCart.initActions();
-
-    //console.log('new Cart', thisCart);
   }
 
   getElements (element) {
@@ -97,19 +95,13 @@ class Cart {
   add (menuProduct) {
     const thisCart = this;
 
-    //generate HTML based on template
     const generatedHTML = templates.cartProduct(menuProduct);
 
-    //create element DOM i savi it in const generatedDOM
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
 
-    //add DOM elments to thisCart.dom.productList
     thisCart.dom.productList.appendChild(generatedDOM);
 
-    //console.log('adding product', menuProduct);
-
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
-    //console.log('thisCart.products', thisCart.products);
 
     thisCart.update();
   }
@@ -134,7 +126,6 @@ class Cart {
         elem.innerHTML = thisCart[key];
       }
     }
-
   }
 
   remove (cartProduct) {
@@ -148,7 +139,6 @@ class Cart {
     cartProduct.dom.wrapper.remove();
 
     thisCart.update();
-
   }
 }
 

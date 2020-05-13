@@ -30,7 +30,6 @@ const app = {
       }
     }
     
-    //console.log(pageMatchingHash);
     thisApp.activatePage(pageMatchingHash);
 
     for (let link of thisApp.navLinks) {
@@ -38,13 +37,10 @@ const app = {
         const clickedElement = this;
         event.preventDefault();
 
-        //get page id from href attribute
         const id = clickedElement.getAttribute('href').replace('#', '');
 
-        //run thisApp.activatePage with that id
         thisApp.activatePage(id);
 
-        //change URL hash
         window.location.hash = '#/' + id;
       });
     }
@@ -53,36 +49,23 @@ const app = {
   activatePage: function (pageId) {
     const thisApp = this;
 
-    //add class acive to matching pages, remove from non-matching
     for (let page of thisApp.pages) {
-      // if (page.id == pageId) {
-      //   page.classList.add(classNames.pages.active);
-      // } else {
-      //   page.classList.remove(classNames.pages.active);
-      // }
-      // OR
 
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
 
-    //add class acive to matching links, remove from non-matching
     for (let link of thisApp.navLinks) {
       link.classList.toggle(
         classNames.nav.active,
         link.getAttribute('href') == '#' + pageId
-      ); //I divide it for better visibility
-
+      );
     }
-
   },
 
   initMenu: function () {
     const thisApp = this;
-    //console.log('thisApp.data:', thisApp.data);
-    //const testProduct = new Product();
-    //console.log('test Product:', testProduct);
+
     for(let productData in thisApp.data.products) {
-      //new Product(productData, thisApp.data.products[productData]);
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
     }
   },
@@ -99,16 +82,11 @@ const app = {
         return rawResponse.json();
       })
       .then (function (parsedResponse) {
-        //console.log('parsedResponse',  parsedResponse);
 
-        //save parsedResponse as thisApp.data.products
         thisApp.data.products = parsedResponse;
 
-        //execute initManu method
         thisApp.initMenu();
       });
-
-    //console.log('thisApp.data', JSON.stringify(thisApp.data));
   },
 
   initCart: function () {
@@ -151,16 +129,11 @@ const app = {
 
   init: function () {
     const thisApp = this;
-    //console.log('*** App starting ***');
-    //console.log('thisApp:', thisApp);
-    //console.log('classNames:', classNames);
-    //console.log('settings:', settings);
-    //console.log('templates:', templates);
 
     thisApp.initPages();
 
     thisApp.initData ();
-    //thisApp.initMenu ();
+
     thisApp.initCart ();
 
     thisApp.initBooking ();

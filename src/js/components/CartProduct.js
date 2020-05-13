@@ -15,10 +15,6 @@ class CartProduct {
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
     thisCartProduct.initActions();
-
-    //console.log('new CartProduct', thisCartProduct);
-    //console.log('productData', menuProduct);
-    //console.log(thisCartProduct.remove);
   }
 
   getElements (element) {
@@ -83,10 +79,9 @@ class CartProduct {
       priceSingle: thisCartProduct.priceSingle,
       params: thisCartProduct.params,
     };
-      
+
     return product;
   }
-
 }
 
 export default CartProduct;

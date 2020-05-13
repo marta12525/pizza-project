@@ -9,18 +9,12 @@ class AmountWidget extends BaseWidget {
 
     thisWidget.getElements(element);
 
-    //thisWidget.value = settings.amountWidget.defaultValue;
-    //thisWidget.setValue(thisWidget.dom.input.value);
-
     thisWidget.initActions();
-
-    //console.log('AmountWidget:', thisWidget);
   }
 
   getElements(){
     const thisWidget = this;
     
-    //thisWidget.dom.wrapper = element;
     thisWidget.dom.input = thisWidget.dom.wrapper.querySelector(select.widgets.amount.input);
     thisWidget.dom.linkDecrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkDecrease);
     thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
@@ -54,9 +48,7 @@ class AmountWidget extends BaseWidget {
       event.preventDefault;
       thisWidget.setValue(thisWidget.value + 1);
     });
-
   }
-
 }
 
 export default AmountWidget;
